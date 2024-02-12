@@ -6,14 +6,15 @@ import {
   CardFooter,
   Typography,
 } from "@material-tailwind/react";
-import { Input } from "@material-tailwind/react";
-import { Button } from "@material-tailwind/react";
+import { Input, Button } from "@material-tailwind/react";
 import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import ClipLoader from "react-spinners/ClipLoader";
 import { AuthContext } from "../AppContext/AppContext";
 import { auth, onAuthStateChanged } from "../firebase/firebase";
+// Import the logo
+import logo from "../../assets/images/logol.png";
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
@@ -42,22 +43,20 @@ const Login = () => {
     email: Yup.string().email("Invalid email address").required("Required"),
     password: Yup.string()
       .required("Required")
-      .min("6", "Must be at least 6 characters long")
+      .min(6, "Must be at least 6 characters long")
       .matches(/^[a-zA-Z]+$/, "Password can only contain letters"),
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const { email, password } = formik.values;
-    if (formik.isValid === true) {
+    if (formik.isValid) {
       loginWithEmailAndPassword(email, password);
       setLoading(true);
     } else {
       setLoading(false);
       alert("Check your input fields");
     }
-
-    console.log("formik", formik);
   };
 
   const formik = useFormik({ initialValues, validationSchema, handleSubmit });
@@ -71,17 +70,14 @@ const Login = () => {
       ) : (
         <div className="grid grid-cols-1 h-screen justify-items-center items-center">
           <Card className="w-96">
-            <CardHeader
-              variant="gradient"
-              color="blue"
-              className="mb-4 grid h-28 place-items-center"
-            >
-              <Typography variant="h3" color="white">
-                LOGIN
-              </Typography>
-            </CardHeader>
+          
             <CardBody className="flex flex-col gap-4">
               <form onSubmit={handleSubmit}>
+                {/* Logo Element */}
+                <div className="flex justify-center mb-4">
+                  <img src={logo} alt="Logo" className="h-150 w-200" />
+                </div>
+                
                 <div className="mb-2">
                   <Input
                     name="email"
@@ -134,14 +130,14 @@ const Login = () => {
                 Sign In with Google
               </Button>
               <Link to="/reset">
-                <p className="ml-1 font-bold font-roboto text-sm text-blue-500 text-center ">
+                <p className="ml-1 font-bold font-roboto text-sm text-#BEC7B4 text-center ">
                   Reset the password
                 </p>
               </Link>
               <div className="mt-6 flex items-center font-roboto text-base justify-center">
                 Don't have an account?
                 <Link to="/register">
-                  <p className="ml-1 font-bold font-roboto text-sm text-blue-500 text-center ">
+                  <p className="ml-1 font-bold font-roboto text-sm text-#BEC7B4 text-center ">
                     Register
                   </p>
                 </Link>

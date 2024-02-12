@@ -2,8 +2,9 @@ import React, { useState, useContext, useEffect, useReducer } from "react";
 import { Avatar } from "@material-tailwind/react";
 import avatar from "../../assets/images/avatar.jpg";
 import like from "../../assets/images/like.png";
-import comment from "../../assets/images/comment.png";
-import remove from "../../assets/images/delete.png";
+import comment from "../../assets/images/comm.png";
+import remove from "../../assets/images/bini.png";
+import like1 from "../../assets/images/instalike.png";
 import addFriend from "../../assets/images/add-friend.png";
 import { AuthContext } from "../AppContext/AppContext";
 import {
@@ -150,11 +151,6 @@ const PostCard = ({ uid, id, logo, name, email, text, image, timestamp }) => {
               onClick={addUser}
               className="w-full flex justify-end cursor-pointer mr-10"
             >
-              <img
-                className="hover:bg-blue-100 rounded-xl p-2"
-                src={addFriend}
-                alt="addFriend"
-              ></img>
             </div>
           )}
         </div>
@@ -171,7 +167,7 @@ const PostCard = ({ uid, id, logo, name, email, text, image, timestamp }) => {
             className="flex items-center cursor-pointer rounded-lg p-2 hover:bg-gray-100"
             onClick={handleLike}
           >
-            <img className="h-8 mr-4" src={like} alt=""></img>
+            <img className="h-8 mr-4" src={like1} alt=""></img>
             {state.likes?.length > 0 && state?.likes?.length}
           </button>
           <div

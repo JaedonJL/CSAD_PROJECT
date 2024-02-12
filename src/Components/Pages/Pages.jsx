@@ -4,12 +4,14 @@ import Home from "./Home";
 import Login from "./Login";
 import ClothesGenerationPage from "../Tabs/ClothingGenerationPage";
 import ShopPage from "../Tabs/ShopPage";
-import AccountPage from "../Tabs/AccountPage";
+import AboutPage from "../Tabs/AboutPage";
 import HomePage from "../Tabs/HomePage";
 import Regsiter from "./Regsiter";
 import Reset from "./Reset";
 import FriendProfile from "./FriendProfile";
 import Profile from "./Profile";
+import ClothingUpload from "../Tabs/ClothingUpload";
+import ClothingGallery from "../Tabs/ClothingGallery";
 
 
 
@@ -26,7 +28,9 @@ const Pages = () => {
     <Route path="/profile/:id" element={<Profile />} />
     <Route path="/clothes" element={<ClothesGenerationPage />} />
     <Route path="/shop" element={<ShopPage />} />
-    <Route path="/account" element={<AccountPage />} />
+    <Route path="/account" element={<AboutPage />} />
+    <Route path="/upload" element={<ClothingUpload />} />
+    <Route path="/gallery" element={<ClothingGallery />} />
 </Routes>
 
     </div>

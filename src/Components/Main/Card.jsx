@@ -8,6 +8,7 @@ const Card = ({ name, img, status }) => {
           className="h-80 w-56 rounded-2xl hover:scale-105 duration-700 ease-in-out cursor-pointer shadow-lg"
           src={img}
           alt={name}
+          style={{objectFit:'cover'}}
         ></img>
         <p className=" absolute bottom-4 left-4 text-sm font-medium text-white font-roboto no-underline leading-none">
           {name}
